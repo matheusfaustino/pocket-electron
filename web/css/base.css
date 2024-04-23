@@ -1,0 +1,102 @@
+body .container-fluid {
+  overflow: hidden;
+}
+
+div.loader-bar {
+  height: 50px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  display: block;
+}
+
+.sidebar, .webview {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidebar {
+  border-right: 1px solid #ccc;
+}
+
+.sidebar .input-group {
+  width: 100%;
+  padding: 5px 0 10px 0;
+}
+
+.sidebar .input-group form.form-inline.col-xs-12 {
+  padding: 0;
+}
+
+.sidebar .input-group form.form-inline.col-xs-12 .text-search {
+  padding: 0;
+  width: 76%;
+}
+
+.sidebar .input-group form.form-inline.col-xs-12 .buttons {
+  padding: 0;
+}
+
+.sidebar .sidebar-item {
+  overflow-y: scroll;
+  height: 100vh;
+  padding: 5px 0 16px 0;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.sidebar .sidebar-item li {
+  position: relative;
+}
+
+.progress-bar-sidebar {
+  position: absolute;
+  z-index: 10;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: #fff;
+  left: 50%;
+  width: 90%;
+  margin-left: -45%;
+  height: 25px;
+  padding: 5px;
+}
+
+.webview {
+  position: relative;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.webview .indicator{
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+  height: 25px;
+  padding: 5px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  display: none;
+  background: #fff;
+}
+
+.webview webview {
+  display: flex;
+  height: 100vh;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.sidebar .tag {
+  display: inline-block;
+  background: blue;
+  color: white;
+  font-size: 10px;
+  padding: 2px;
+  margin: 0 1px;
+  border-radius: 4px;
+}

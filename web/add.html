@@ -1,0 +1,44 @@
+<html lang="en" ng-app="pocket">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/base.css">
+  <link rel="stylesheet" type="text/css" href="../bower_components/selectize/dist/css/selectize.bootstrap3.css">
+  </head>
+  <body>
+    <div ng-controller="PocketController as pocket" class="panel panel-default">
+      <div class="panel-heading">Add new item</div>
+      <form ng-submit="pocket.addItem()" class="panel-body">
+        <div class="form-group">
+          <label for="recipient-name" class="control-label">Title:</label>
+          <input type="text" class="form-control" ng-model="pocket.item_title" id="title-item" placeholder="Title">
+        </div>
+        <div class="form-group">
+          <label for="message-text" class="control-label">Url:</label>
+          <input paste-url autofocus required type="url" class="form-control" ng-model="pocket.item_url" id="url-item" placeholder="Type the url">
+        </div>
+        <div class="form-group">
+          <label for="message-text" class="control-label">Tags:</label>
+          <selectize
+            config="pocket.selectize.config"
+            options="pocket.selectize.options"
+            ng-model="pocket.selectize.tags">
+          </selectize>
+        </div>
+
+        <button type="button" class="btn btn-default close-button" onclick="window.close();">Close</button>
+        <button type="submit" class="btn btn-primary" ng-click="">Save</button>
+      </form>
+    </div>
+
+     <script > window.$ = window.jQuery = require('../bower_components/jquery/dist/jquery.min.js') </script>
+  <script type="text/javascript" src="../bower_components/bootstrap/js/modal.js"></script>
+  <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="../bower_components/angular-animate/angular-animate.min.js"></script>
+  <script type="text/javascript" src="../bower_components/selectize/dist/js/standalone/selectize.min.js"></script>
+  <script type="text/javascript" src="../node_modules/angular-selectize2/dist/selectize.js"></script>
+  <script type="text/javascript" src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+  <script> require('./js/index.js') </script>
+  <script type="text/javascript" src="./js/lrInfiniteScroll.js"></script>
+
+  </body>
+</html>

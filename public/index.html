@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="../node_modules/materialize-css/bin/materialize.css"/>
+    <link href="./index.css" rel="stylesheet">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <div class="row grey lighten-4" id="app" tabindex="0" v-on:scroll="loadMore"
+        @keydown.meta="goToSearch"
+        @keydown.ctrl.r="updateList">
+        <div class="progress fixed" v-if="loading">
+          <div class="indeterminate"></div>
+        </div>
+
+        <!-- <nav tabindex="0" @keydown.esc="goToList">
+            <div class="nav-wrapper">
+                <form v-on:submit.prevent="searchItems">
+                    <div class="input-field">
+                        <input placeholder="Search" type="search" name="search" id="search" v-model="search"
+                            @keyup.ctrl.t="search += ' tags:'"
+                            @keyup.ctrl.u="search += ' url:'">
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons" @click="goToList">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav> -->
+
+        <!-- Side Nav -->
+        <ul id="slide-out" class="side-nav">
+            <li>
+                <div class="userView">
+                    <div class="background">
+                        <img src="http://lorempixel.com/400/200">
+                    </div>
+                  <a href="#!user"><img class="circle" src="http://lorempixel.com/150/150"></a>
+                  <a href="#!name"><span class="white-text name">John Doe</span></a>
+                  <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                </div>
+            </li>
+            <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+            <li><a href="#!">Second Link</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Subheader</a></li>
+            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        </ul>
+
+        <!-- Nav Bar -->
+        <nav>
+            <div class="nav-wrapper" v-show="!searching">
+                <ul class="left">
+                    <li>
+                        <a href="#" data-activates="slide-out" class="waves-effect waves-light menu-side-nav">
+                            <i class="material-icons">menu</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-button flow-text" href="#" data-activates="dropdown1">
+                            Home
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="right">
+                    <li>
+                        <a class="waves-effect waves-light"
+                            id="searchIcon"
+                            v-on:click="invokeSearchBar">
+                            <i class="material-icons">search</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-light"
+                            v-on:click="formItemModal = true">
+                            <i class="material-icons">add</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-light"
+                            v-on:click="updateList">
+                            <i class="material-icons">refresh</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-wrapper" v-show="searching">
+                <form v-on:submit.prevent="searchItems">
+                    <div class="input-field">
+                        <input placeholder="Search"
+                            type="search" name="search" id="search" v-model="search"
+                            @keyup.ctrl.t="search += ' tags:'"
+                            @keyup.ctrl.u="search += ' url:'"
+                            @keyup.esc="searching = false; search = ''; goToList()">
+                        <label class="label-icon" @click="searching = false; search = ''">
+                            <i class="material-icons">arrow_back</i>
+                        </label>
+                        <!-- <i class="material-icons" @click="goToList">close</i> -->
+                        <i class="material-icons" @click="search = ''; $el.querySelector('#search').focus()">close</i>
+                    </div>
+                </form>
+            </div>
+            <!-- Dropbown title -->
+            <ul id="dropdown1" class="dropdown-content">
+                <li><a class="flow-text" href="#">Home</a></li>
+            </ul>
+        </nav>
+
+        <section>
+            <div id="list_item" class="section" v-if="items.length">
+                <div class="col s6 m4 l3" v-for="item in items" @keyup="handleKey">
+                    <item :item="item"></item>
+                </div>
+            </div>
+            <div class="no-content" v-else>
+                <div class="center-align grey-text" v-if="loading == false">
+                    <p class="flow-text">Sorry, I found nothing :(</p>
+                    <i class="material-icons medium">info_outline</i>
+                </div>
+                <div class="center-align grey-text" v-else>
+                    <p class="flow-text">Loading...</p>
+                </div>
+            </div>
+        </section>
+
+        <modal-form-item v-on:close="formItemModal = false;" :open-modal="formItemModal">
+          <div class="row" slot="content">
+            <h3>Add new Item</h3>
+            <form-item :autocomplete="allTags" :refresh="formItemModal"
+                v-on:submit="newItemAdded"></form-item>
+          </div>
+        </modal-form-item>
+    </div>
+
+    <script type="text/javascript" src="./dist/build.js"></script>
+</body>
+</html>

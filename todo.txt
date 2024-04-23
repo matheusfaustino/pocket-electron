@@ -1,0 +1,16 @@
+http://www.dtelepathy.com/blog/inspiration/14-beautiful-content-heavy-websites-for-inspiration - google
+http://alistapart.com/article/content-out-layout - grids
+https://blackrockdigital.github.io/startbootstrap-simple-sidebar/ - sidebar legal e cores tbm
+https://agileui.com/demo/monarch/demo/admin-template/index.html - interessante barras do topo
+http://aqvatarius.com/themes/index.php?template=intuitive - || || 
+http://preview.themeforest.net/item/materialism-angular-bootstrap-admin-template/full_screen_preview/11322821?ref=cirvitis
+- || || 
+http://urban.nyasha.me/html/ - || || 
+
+
+- usar material design
+-- colocar uma image flat de fundo
+-- colocar eles em blocos (como cards)
+-- | quando clica abre tp de uma nova pagina com o conteudo/texto do artigo (ver se o pocket retorna)
+- pesquisa no titulo grande (como no material)
+- criar pastas ou padroes para agrupar os itens (geral ou por tag - pode ter mais opcoes tbm)

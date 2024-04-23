@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Vestion=0.2
+Name=Pocket
+Comment=Pocket Cliente
+Exec=pocket-electron
+StartupNotify=false
+Terminal=false
+Icon=pocket
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
